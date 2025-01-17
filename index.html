@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オセロゲーム</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>オセロゲーム</h1>
+        <div id="game-board"></div>
+        <div id="turn-indicator">現在のターン: 黒</div>
+        <div class="controls">
+            <!-- 各操作ボタン -->
+            <button class="button pass-button" id="pass-button">パス</button>
+            <button class="button reset-button" id="reset-button">リセット</button>
+            <button class="button auto-button" id="auto-button">自動モード</button>
+        </div>
+        <div>
+            <p>スコア - 黒: <span id="black-score">0</span> 白: <span id="white-score">0</span></p>
+        </div>
+        <h2 id="result"></h2>
+        <p id="pass-message"></p>
+        <p id="auto-mode-status">自動モード: オフ</p>
+    </div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
