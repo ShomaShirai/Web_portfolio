@@ -1,0 +1,167 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #f4f4f9;
+}
+
+/* タイトルのスタイル */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ゲームボード全体のスタイル */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* セルの幅を均等にする */
+    gap: 5px;
+    width: 100%;
+    max-width: 480px; /* 最大幅を480pxに制限 */
+    background-color: #2c7a7b;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center; /* フレックスボックスで水平中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+
+/* ボードの外側を中央揃えにするための親要素（スマホ対応用） */
+#game-container {
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    flex-direction: column; /* 縦方向に要素を並べる */
+    min-height: 100vh; /* 画面全体をカバー */
+    width: 100%; /* 親要素の幅を100%に */
+    box-sizing: border-box; /* パディングを含めた幅計算 */
+}
+
+/* 各セルのスタイル */
+.cell {
+    aspect-ratio: 1 / 1; /* セルを正方形にする */
+    background-color: #3aafa9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+
+/* セルのホバー時の効果 */
+.cell:hover {
+    background-color: #76e1e3;
+}
+
+/* 駒のスタイル */
+.piece {
+    width: 80%; /* 駒のサイズをセルに対して相対的に */
+    height: 80%; /* 駒のサイズをセルに対して相対的に */
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* 黒駒のスタイル */
+.black {
+    background-color: #2f2f2f;
+}
+
+/* 白駒のスタイル */
+.white {
+    background-color: #ffffff;
+}
+
+/* コントロールボタンのスタイル */
+.controls {
+    margin: 20px;
+}
+
+.button {
+    font-size: 1rem; /* レスポンシブなフォントサイズ */
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* ボタンのホバー時のエフェクト */
+.button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* 無効化されたボタンのスタイル */
+.button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 各ボタンの固有スタイル */
+.pass-button {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.reset-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.auto-button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* パスメッセージのスタイル */
+#pass-message {
+    font-size: 1.2rem; /* フォントサイズをレスポンシブに */
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+/* 自動モードの状態表示 */
+#auto-mode-status {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #3498db;
+}
+
+/* メディアクエリで小さい画面用に調整 */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #game-board {
+        gap: 3px;
+    }
+
+    .cell {
+        border-radius: 3px;
+    }
+
+    .piece {
+        width: 70%;
+        height: 70%;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    #pass-message {
+        font-size: 1rem;
+    }
+}
