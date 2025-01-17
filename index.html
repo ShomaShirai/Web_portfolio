@@ -9,20 +9,22 @@
 <body>
     <div id="game-container">
         <h1>オセロゲーム</h1>
+        <div id="game-info">
+            <p id="game-details">
+                <span id="turn-indicator">黒</span> | 
+                黒: <span id="black-score">0</span> 白: <span id="white-score">0</span> | 
+                <span id="auto-mode-status">オフ</span>
+            </p>
+        </div>
         <div id="game-board"></div>
-        <div id="turn-indicator">現在のターン: 黒</div>
         <div class="controls">
             <!-- 各操作ボタン -->
             <button class="button pass-button" id="pass-button">パス</button>
             <button class="button reset-button" id="reset-button">リセット</button>
             <button class="button auto-button" id="auto-button">自動モード</button>
         </div>
-        <div>
-            <p>スコア - 黒: <span id="black-score">0</span> 白: <span id="white-score">0</span></p>
-        </div>
         <h2 id="result"></h2>
         <p id="pass-message"></p>
-        <p id="auto-mode-status">自動モード: オフ</p>
     </div>
     <script src="assets/js/app.js"></script>
 </body>

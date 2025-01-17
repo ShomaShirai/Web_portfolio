@@ -2,14 +2,16 @@ body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 20px;
-    background-color: #f4f4f9;
+    background-color: rgb(128, 210, 128);
 }
 
 /* タイトルのスタイル */
 h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
+    position: relative;
+    color: #074892;
+    line-height: 1.4;
+    -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+  }
 
 /* ゲームボード全体のスタイル */
 #game-board {
@@ -141,7 +143,18 @@ h1 {
     font-size: 1rem;
     font-weight: bold;
     margin: 10px 0;
-    color: #3498db;
+}
+
+#turn-indicator {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#game-score {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 /* メディアクエリで小さい画面用に調整 */
