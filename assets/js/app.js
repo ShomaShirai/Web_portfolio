@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const playerName = currentPlayer === 'black' ? '黒' : '白';
         document.getElementById('pass-message').textContent = `${playerName}がパスしました`;
         passCount++; // パスカウントを増加
+        computerMove(); // コンピューターの動きを実行
 
         if (passCount >= 2) { // 連続で両者がパスした場合
             endGame(); // ゲームを終了
