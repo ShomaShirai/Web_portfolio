@@ -72,6 +72,12 @@ h1 {
     background-color: #ffffff;
 }
 
+/* 駒を置けるセルの強調スタイル */
+.cell.highlight {
+    background-color: #ffdf00; /* 黄色で強調 */
+    cursor: pointer;
+}
+
 /* コントロールボタンのスタイル */
 .controls {
     margin: 20px;
@@ -122,6 +128,7 @@ h1 {
     font-size: 1.2rem; /* フォントサイズをレスポンシブに */
     font-weight: bold;
     background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);

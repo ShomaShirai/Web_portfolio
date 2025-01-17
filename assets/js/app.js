@@ -28,27 +28,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // ボードを描画する関数
     function drawBoard() {
         gameBoard.innerHTML = ''; // ボードを一旦クリア
-        for (let row = 0; row < boardSize; row++) { // 各行をループ
-            for (let col = 0; col < boardSize; col++) { // 各列をループ
+        for (let row = 0; row < boardSize; row++) {
+            for (let col = 0; col < boardSize; col++) {
                 const cell = document.createElement('div'); // 新しいセル要素を作成
                 cell.className = 'cell'; // セルにクラスを設定
                 cell.dataset.row = row; // セルに行番号を設定
                 cell.dataset.col = col; // セルに列番号を設定
-
-                if (board[row][col]) { // セルに駒が置かれている場合
-                    const piece = document.createElement('div'); // 駒を表す要素を作成
-                    piece.className = `piece ${board[row][col]}`; // 駒のクラスを設定（黒または白）
-                    cell.appendChild(piece); // セルに駒を追加
+    
+                if (board[row][col]) {
+                    const piece = document.createElement('div');
+                    piece.className = `piece ${board[row][col]}`;
+                    cell.appendChild(piece);
                 }
-
-                // セルにクリックイベントを追加（駒を置く処理）
+    
+                // 駒を置ける場所の強調 (黒のターンのみ)
+                if (currentPlayer === 'black' && board[row][col] === null) {
+                    const flips = getFlips(row, col, currentPlayer);
+                    if (flips.length > 0) {
+                        cell.classList.add('highlight'); // 駒を置けるセルにクラスを追加
+                    }
+                }
+    
+                // セルクリックイベント
                 cell.addEventListener('click', () => handleMove(row, col));
-
+    
                 gameBoard.appendChild(cell); // セルをボードに追加
             }
         }
-        checkGameOver(); // ゲーム終了判定を実行
+        checkGameOver();
     }
+    
 
     // 駒を置いた際の処理を行う関数
     function handleMove(row, col) {
